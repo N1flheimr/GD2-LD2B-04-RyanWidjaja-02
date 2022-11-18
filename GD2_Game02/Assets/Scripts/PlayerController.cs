@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     #region COMPONENTS
     private Rigidbody2D rb_;
+    [SerializeField] private GameObject RotatingObject;
     #endregion
 
     #region STATE PARAMETERS
@@ -372,9 +373,9 @@ public class PlayerController : MonoBehaviour
 
     private void Turn()
     {
-        Vector3 scale = transform.localScale;
+        Vector3 scale = RotatingObject.transform.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
+        RotatingObject.transform.localScale = scale;
 
         isFacingRight = !isFacingRight;
     }
