@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - UI
   - Ground
   - BG
-  - Fire
-  - 
+  - Torch
+  - Fireball
   - 
   - 
   - 
@@ -52,6 +53,12 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 254058693
+    locked: 0
+  - name: Arrow
+    uniqueID: 3103033053
+    locked: 0
+  - name: Bow
+    uniqueID: 4025726783
     locked: 0
   - name: Above
     uniqueID: 3789697017
