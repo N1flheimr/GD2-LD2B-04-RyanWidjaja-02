@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     [SerializeField] private float maxHealth = 150f;
 
@@ -18,5 +18,15 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
+
+        if (currentHealth < 0f)
+        {
+            currentHealth = 0f;
+        }
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

@@ -5,29 +5,105 @@ using UnityEngine;
 public class Bow : MonoBehaviour
 {
     public GameObject fireballPrefab;
+
     [SerializeField] private float launchForce;
+
+    [SerializeField] private float chargeSpeed;
+
+    [SerializeField] private float maxLaunchForce;
+
+    [SerializeField] private float consumeHealthAmount;
+
     [SerializeField] private Transform shotPoint;
+    [SerializeField] private GameObject pointParentGameObject;
+
+    [SerializeField] private GameObject arrowGameObject;
+
+    private bool isCharging;
+
+    private Health playerHealth;
+
+    public Vector2 direction;
+
+    private void Awake()
+    {
+        playerHealth = GetComponentInParent<Health>();
+        isCharging = false;
+    }
 
     private void Update()
     {
         Vector2 position = transform.position;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePos - position).normalized;
+
+        direction = (mousePos - position).normalized;
         transform.right = direction;
 
-        if (Input.GetMouseButtonDown(0))
+        Shoot();
+    }
+
+    private void Charge()
+    {
+        if (!isCharging)
         {
-            Shoot();
+            isCharging = true;
+            arrowGameObject = Instantiate(fireballPrefab, shotPoint.position, shotPoint.rotation);
+            arrowGameObject.transform.parent = shotPoint;
+            arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            arrowGameObject.GetComponent<CircleCollider2D>().enabled = false;
+            pointParentGameObject.SetActive(true);
+        }
+
+        launchForce += chargeSpeed * Time.deltaTime;
+
+        if (launchForce > maxLaunchForce)
+        {
+            launchForce = maxLaunchForce;
         }
     }
 
     private void Shoot()
     {
-        GameObject arrowGameObject = Instantiate(fireballPrefab, shotPoint.position, shotPoint.rotation);
-
-        if(arrowGameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
+        if (Input.GetMouseButton(0))
         {
-            rb.velocity = transform.right * launchForce;
+            Charge();
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            arrowGameObject.GetComponent<CircleCollider2D>().enabled = true;
+            arrowGameObject.transform.parent = null;
+
+            if (arrowGameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
+            {
+                rb.velocity = transform.right * launchForce;
+            }
+            isCharging = false;
+            launchForce = 0;
+            pointParentGameObject.SetActive(false);
+            arrowGameObject = null;
+            ConsumeHealth();
+        }
+    }
+
+    private void ConsumeHealth()
+    {
+        playerHealth.TakeDamage(consumeHealthAmount);
+    }
+
+    public float GetLaunchForce()
+    {
+        return launchForce;
+    }
+
+    public Transform GetShotPoint()
+    {
+        return shotPoint;
+    }
+
+    public GameObject GetPointParentGameObject()
+    {
+        return pointParentGameObject;
     }
 }

@@ -129,7 +129,6 @@ public class PlayerController : MonoBehaviour
                 || (Physics2D.OverlapBox(backWallCheckPoint_.position, wallCheckSize_, 0, groundLayer_) && !isFacingRight))
         {
             isOnRightWall_ = true;
-            Debug.Log("RightWall");
         }
         else
         {
@@ -140,7 +139,6 @@ public class PlayerController : MonoBehaviour
             || (Physics2D.OverlapBox(backWallCheckPoint_.position, wallCheckSize_, 0, groundLayer_) && isFacingRight))
         {
             isOnLeftWall_ = true;
-            Debug.Log("LeftWall");
         }
         else
         {
@@ -169,8 +167,6 @@ public class PlayerController : MonoBehaviour
         {
             if (rb_.velocity.y < 0)
             {
-                Debug.Log("fallMult");
-                Debug.Log("rb.vel.y: " + rb_.velocity.y);
                 rb_.gravityScale = gravityScale * fallGravityMult;
             }
             else
@@ -182,8 +178,6 @@ public class PlayerController : MonoBehaviour
         {
             if (rb_.velocity.y > 0)
             {
-                Debug.Log("fallMult");
-                Debug.Log("rb.vel.y: " + rb_.velocity.y);
                 rb_.gravityScale = gravityScale * fallGravityMult;
             }
             else
@@ -195,18 +189,14 @@ public class PlayerController : MonoBehaviour
         {
             if (rb_.velocity.y < 0 && rb_.velocity.y < fallClamp_)
             {
-                Debug.Log("Clamp");
                 rb_.velocity = new Vector2(rb_.velocity.x, fallClamp_);
-                Debug.Log("vel.y" + rb_.velocity.y);
             }
         }
         else
         {
             if (rb_.velocity.y > 0 && rb_.velocity.y > -fallClamp_)
             {
-                Debug.Log("Clamp");
                 rb_.velocity = new Vector2(rb_.velocity.x, -fallClamp_);
-                Debug.Log("vel.y" + rb_.velocity.y);
             }
         }
         #endregion
@@ -340,7 +330,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             lastPressedJumpTime = jumpBufferTime;
-            Debug.Log("lastpressjump" + lastPressedJumpTime);
         }
     }
 
@@ -349,7 +338,6 @@ public class PlayerController : MonoBehaviour
         if (CanJumpCut() && rb_.velocity.y > 0)
         {
             JumpCut();
-            Debug.Log("JumpCut");
         }
     }
     public void OnJumpDown()
@@ -357,7 +345,6 @@ public class PlayerController : MonoBehaviour
         if (CanJumpCut() && rb_.velocity.y < 0)
         {
             JumpCut();
-            Debug.Log("JumpCut");
         }
     }
 

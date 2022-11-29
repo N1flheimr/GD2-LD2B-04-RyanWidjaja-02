@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     //[SerializeField] private CinemachineVirtualCamera CinemachineVirtualCamera;
     private void Awake()
     {
+        transform.parent = null;
     }
 
     private void Update()

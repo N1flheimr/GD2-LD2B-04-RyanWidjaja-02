@@ -16,7 +16,7 @@ TagManager:
   - BG
   - Torch
   - Fireball
-  - 
+  - Player
   - 
   - 
   - 
@@ -48,7 +48,13 @@ TagManager:
   - name: Object
     uniqueID: 3804253137
     locked: 0
-  - name: Ground
+  - name: ProjectilePoints
+    uniqueID: 1712947849
+    locked: 0
+  - name: InnerGround
+    uniqueID: 1244944455
+    locked: 0
+  - name: OuterGround
     uniqueID: 920893831
     locked: 0
   - name: Player

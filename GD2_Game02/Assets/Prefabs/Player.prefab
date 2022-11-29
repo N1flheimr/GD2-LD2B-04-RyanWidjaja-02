@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203190985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.325, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 337088415}
   - component: {fileID: 337088416}
+  - component: {fileID: 81121490}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -57,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 337088414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.475, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2136101049}
@@ -78,8 +79,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 6538400535152912704, guid: 9ce3a5fd054538c48b6d28409b19f1cc, type: 3}
-  launchForce: 13
+  launchForce: 0
+  chargeSpeed: 65
+  maxLaunchForce: 28
   shotPoint: {fileID: 203190986}
+  pointParentGameObject: {fileID: 0}
+  direction: {x: 0, y: 0}
+--- !u!114 &81121490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337088414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7c16c99e32d7f43a689638f7cc0877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointGameObject: {fileID: 2181072355434124486, guid: b6f77b9fc97e05849abb231198974161, type: 3}
+  numberOfPoints: 65
+  spaceBetweenPoints: 0.0185
 --- !u!1 &1895013739
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 7807192085707293143}
-  maxDistance: {x: 5, y: 3}
+  maxDistance: {x: 8, y: 5}
 --- !u!1 &2136101048
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +217,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -269240513
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.6118021, g: 0.6226415, b: 0.20793873, a: 1}
@@ -324,7 +344,7 @@ MonoBehaviour:
   m_Intensity: 2
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000c79ac8aad14bc0e287b9e336c5a0240ff92fe2e1dd86f4b83fb7f3ef
+  m_ApplyToSortingLayers: 00000000c79ac8aad14bc0e287b9e336c5a0240ff92fe2e1dd86f4b83fb7f3ef89821966
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 1
@@ -579,7 +599,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 254058693
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.6509434, g: 0.2709607, b: 0.16826269, a: 1}
@@ -673,8 +693,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.8}
-  m_EdgeRadius: 0.25
+  m_Size: {x: 0.24, y: 0.89}
+  m_EdgeRadius: 0.2
 --- !u!50 &7807192085707293136
 Rigidbody2D:
   serializedVersion: 4
@@ -717,7 +737,7 @@ MonoBehaviour:
   groundLayer_:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed_: 4
+  moveSpeed_: 3.55
   velPower_: 1
   acceleration_: 3
   deccelaration_: 2
@@ -728,7 +748,7 @@ MonoBehaviour:
   fallGravityMult: 1.95
   gravityScale: 1.05
   frictionAmount: 0.0275
-  jumpForce_: 11
+  jumpForce_: 11.5
 --- !u!114 &1328094300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,4 +761,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd545ecfef7b4f43a2b6708ad7a47ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  currentHealth: 0
+  maxHealth: 100
