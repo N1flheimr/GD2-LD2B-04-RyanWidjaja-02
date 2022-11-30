@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    [SerializeField] private float damageAmount;
+
     [SerializeField] private float movementSpeed = 1f;
 
     [SerializeField] private Transform wallDetection;
@@ -38,12 +40,13 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (isFacingRight)
         {
-            transform.eulerAngles = new Vector3(0, -180, 0);
+            rotatingSprite.transform.eulerAngles = new Vector3(0, -180, 0);
         }
         else
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            rotatingSprite.transform.eulerAngles = new Vector3(0, 0, 0);
         }
+        movementSpeed *= -1;
         isFacingRight = !isFacingRight;
         Debug.Log("Flip");
     }
@@ -53,7 +56,7 @@ public class EnemyPatrol : MonoBehaviour
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
             Health playerHealth = collision.GetComponent<Health>();
-            playerHealth.TakeDamage(25f);
+            playerHealth.TakeDamage(damageAmount);
             Debug.Log("Damage");
         }
     }

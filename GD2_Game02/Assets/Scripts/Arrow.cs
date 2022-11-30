@@ -55,5 +55,14 @@ public class Arrow : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.isKinematic = true;
         }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
