@@ -7,7 +7,6 @@ public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool hasHit;
-    [SerializeField] private float timeUntilDissapear = 5f;
     private CircleCollider2D circleCollider2D;
     [SerializeField] private Light2D innerLight;
     [SerializeField] private Light2D outerLight;
@@ -29,7 +28,7 @@ public class Arrow : MonoBehaviour
             {
                 innerLight.pointLightInnerRadius -= innerLightFadeSpeed * Time.deltaTime;
             }
-            if(innerLight.pointLightOuterRadius > 0f)
+            if (innerLight.pointLightOuterRadius > 0f)
             {
                 innerLight.pointLightOuterRadius -= innerLightFadeSpeed * Time.deltaTime;
             }
@@ -56,10 +55,5 @@ public class Arrow : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.isKinematic = true;
         }
-    }
-
-    private void Destroy()
-    {
-        innerLight = null;
     }
 }
