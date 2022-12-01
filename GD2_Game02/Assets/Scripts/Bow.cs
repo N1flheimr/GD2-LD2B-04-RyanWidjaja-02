@@ -17,13 +17,13 @@ public class Bow : MonoBehaviour
     [SerializeField] private Transform shotPoint;
     [SerializeField] private GameObject pointParentGameObject;
 
-    [SerializeField] private GameObject arrowGameObject;
+    private GameObject arrowGameObject;
 
     private bool isCharging;
 
     private Health playerHealth;
 
-    public Vector2 direction;
+    [System.NonSerialized] public Vector2 direction;
 
     private void Awake()
     {

@@ -48,7 +48,6 @@ public class EnemyPatrol : MonoBehaviour
         }
         movementSpeed *= -1;
         isFacingRight = !isFacingRight;
-        Debug.Log("Flip");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

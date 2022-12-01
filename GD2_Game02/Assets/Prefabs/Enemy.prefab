@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8bf736b4c53204d92a2d3dbd911f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 15
+  damageAmount: 20
   movementSpeed: 2
   wallDetection: {fileID: 8298626988496800300}
   rotatingSprite: {fileID: 8298626988142233674}

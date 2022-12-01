@@ -209,7 +209,6 @@ public class PlayerController : MonoBehaviour
             if (rb_.velocity.y < 0 && isJumping_)
             {
                 isJumping_ = false;
-                Debug.Log("Jump: " + isJumping_);
             }
         }
         else
@@ -224,7 +223,6 @@ public class PlayerController : MonoBehaviour
         {
             isJumping_ = true;
             Jump();
-            Debug.Log("Jump: " + isJumping_);
         }
 
         if (CanJump() && lastPressedJumpTime > 0)
