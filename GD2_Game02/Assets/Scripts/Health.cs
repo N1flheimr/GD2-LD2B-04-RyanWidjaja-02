@@ -25,6 +25,15 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void SetHealth(float newHealth)
+    {
+        currentHealth = newHealth;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
     public float GetCurrentHealth()
     {
         return currentHealth;
