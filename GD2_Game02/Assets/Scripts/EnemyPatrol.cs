@@ -21,6 +21,11 @@ public class EnemyPatrol : MonoBehaviour
     private void Update()
     {
         Patrol();
+
+        if(!Physics2D.Raycast(wallDetection.transform.position, Vector2.down, 0.5f, LayerMask.GetMask("Ground")))
+        {
+            Flip();
+        }
     }
 
     private void Patrol()
