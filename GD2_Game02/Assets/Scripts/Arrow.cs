@@ -22,6 +22,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
+
         if (outerLight.pointLightOuterRadius > 0f)
         {
             if (innerLight.pointLightInnerRadius > 0f)
@@ -36,14 +37,12 @@ public class Arrow : MonoBehaviour
         }
         else
         {
-            innerLight.enabled = false;
-            outerLight.enabled = false;
-            Destroy(rb);
-        }
-
-        if (!hasHit)
-        {
-            return;
+            if (hasHit)
+            {
+                innerLight.enabled = false;
+                outerLight.enabled = false;
+                Destroy(rb);
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

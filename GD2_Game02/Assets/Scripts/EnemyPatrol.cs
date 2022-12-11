@@ -11,7 +11,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private Transform wallDetection;
     [SerializeField] private GameObject rotatingSprite;
 
-    private bool isFacingRight = true;
+    [SerializeField] private bool isFacingRight = true;
 
     private void Awake()
     {
