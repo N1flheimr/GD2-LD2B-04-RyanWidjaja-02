@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.65
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000c79ac8aa87b9e336c5a0240ff92fe2e1d14bc0e289821966bf46ff02
+  m_ApplyToSortingLayers: 00000000c79ac8aa87b9e336c5a0240fd14bc0e289821966bf46ff02f92fe2e13fb7f3ef
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 9
@@ -154,6 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8379167838223117825}
   - component: {fileID: 8379167838223117824}
+  - component: {fileID: 1961226268}
   m_Layer: 8
   m_Name: Torch
   m_TagString: Untagged
@@ -217,7 +218,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -490714159
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.6132076, g: 0.45857984, b: 0.30313277, a: 1}
   m_FlipX: 0
@@ -229,6 +230,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1961226268
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8379167838223117827}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb21c22298952474abf4e4d849e157e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8379167838568170904
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +302,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000c79ac8aa87b9e336c5a0240ff92fe2e1d14bc0e289821966bf46ff02
+  m_ApplyToSortingLayers: 00000000c79ac8aa87b9e336c5a0240ff92fe2e1d14bc0e289821966bf46ff023fb7f3ef
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 10
