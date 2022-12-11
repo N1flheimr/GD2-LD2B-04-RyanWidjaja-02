@@ -13,19 +13,9 @@ public class EnemyPatrol : MonoBehaviour
 
     [SerializeField] private bool isFacingRight = true;
 
-    private void Awake()
-    {
-
-    }
-
     private void Update()
     {
         Patrol();
-
-        if(!Physics2D.Raycast(wallDetection.transform.position, Vector2.down, 0.5f, LayerMask.GetMask("Ground")))
-        {
-            Flip();
-        }
     }
 
     private void Patrol()
@@ -34,6 +24,16 @@ public class EnemyPatrol : MonoBehaviour
         Collider2D wallCollider = Physics2D.OverlapCircle(wallDetection.position, radius, LayerMask.GetMask("Ground"));
 
         if (wallCollider)
+        {
+            Flip();
+        }
+
+        float raycastDist = 0.5f;
+
+        RaycastHit2D groundCollider =
+    Physics2D.Raycast(wallDetection.transform.position, Vector2.down, raycastDist, LayerMask.GetMask("Ground"));
+
+        if (!groundCollider)
         {
             Flip();
         }
