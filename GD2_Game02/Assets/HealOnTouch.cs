@@ -13,6 +13,10 @@ public class HealOnTouch : MonoBehaviour
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
             Health playerHealth = collision.GetComponent<Health>();
+            if (playerHealth.GetCurrentHealth() == playerHealth.GetCurrentMaxHealth())
+            {
+                return;
+            }
             playerHealth.SetHealth(playerHealth.GetCurrentHealth() + amount);
             Destroy(this.gameObject);
         }

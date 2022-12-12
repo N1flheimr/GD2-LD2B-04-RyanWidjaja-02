@@ -38,4 +38,9 @@ public class Health : MonoBehaviour
     {
         return currentHealth;
     }
+
+    public float GetCurrentMaxHealth()
+    {
+        return maxHealth;
+    }
 }
