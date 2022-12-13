@@ -22,13 +22,14 @@ public class Health : MonoBehaviour
         if (currentHealth < 0f)
         {
             currentHealth = 0f;
+            Death();
         }
     }
 
     public void SetHealth(float newHealth)
     {
         currentHealth = newHealth;
-        if(currentHealth > maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
@@ -42,5 +43,11 @@ public class Health : MonoBehaviour
     public float GetCurrentMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void Death()
+    {
+        gameObject.SetActive(false);
+        GameManager.instance.GameOver();
     }
 }

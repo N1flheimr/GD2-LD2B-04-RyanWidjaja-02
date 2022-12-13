@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float lastOnWallTime { get; private set; }
     public float lastOnWallRightTime { get; private set; }
     public float lastOnWallLeftTime { get; private set; }
+    float footStepsDelay = 0.35f;
     #endregion
 
 
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
     #region Particle
     //public ParticleSystem footsteps;
     //public ParticleSystem impactEffect;
-    //private bool wasOnGround;
+    private bool wasOnGround = true;
     //private ParticleSystem.EmissionModule footEmission;
     #endregion
 
@@ -89,10 +90,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        //if(footsteps != null)
-        //{
-        //    footEmission = footsteps.emission;
-        //}
         isFacingRight = true;
     }
 
@@ -111,7 +108,18 @@ public class PlayerController : MonoBehaviour
 
         #region GENERAL CHECKS
         if (moveInput_ != 0)
+        {
             CheckDirectionToFace(moveInput_ > 0.01f);
+            if (!isJumping_ && isGrounded_)
+            {
+                footStepsDelay -= Time.deltaTime;
+                Debug.Log(footStepsDelay);
+                if (footStepsDelay < 0f)
+                {
+                    SoundManager.PlaySound(SoundManager.SoundType.PlayerFootsteps, 0.45f);
+                }
+            }
+        }
         #endregion
 
         #region PHYSICS CHECKS
@@ -249,6 +257,7 @@ public class PlayerController : MonoBehaviour
             float amount = Mathf.Min(Mathf.Abs(rb_.velocity.x), Mathf.Abs(frictionAmount));
             amount *= Mathf.Sign(rb_.velocity.x);
             rb_.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
+            footStepsDelay = 0.35f;
         }
 
         #region Particle
@@ -269,7 +278,11 @@ public class PlayerController : MonoBehaviour
         //    impactEffect.Play();
         //}
 
-        //wasOnGround = isGrounded_;
+        if (!wasOnGround && isGrounded_)
+        {
+            SoundManager.PlaySound(SoundManager.SoundType.JumpLanding);
+        }
+        wasOnGround = isGrounded_;
     }
     #endregion
 
