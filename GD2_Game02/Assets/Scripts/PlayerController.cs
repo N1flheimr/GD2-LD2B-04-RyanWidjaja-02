@@ -113,7 +113,6 @@ public class PlayerController : MonoBehaviour
             if (!isJumping_ && isGrounded_)
             {
                 footStepsDelay -= Time.deltaTime;
-                Debug.Log(footStepsDelay);
                 if (footStepsDelay < 0f)
                 {
                     SoundManager.PlaySound(SoundManager.SoundType.PlayerFootsteps, 0.45f);

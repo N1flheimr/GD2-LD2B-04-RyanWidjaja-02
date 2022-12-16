@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageAmount;
 
-        if (currentHealth < 0f)
+        if (currentHealth <= 0f)
         {
             currentHealth = 0f;
             Death();
@@ -47,7 +47,10 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
-        gameObject.SetActive(false);
-        GameManager.instance.GameOver();
+        if (!GameManager.instance.isGameClear())
+        {
+            gameObject.SetActive(false);
+            GameManager.instance.GameOver();
+        }
     }
 }

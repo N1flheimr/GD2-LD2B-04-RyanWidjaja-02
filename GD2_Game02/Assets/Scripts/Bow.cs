@@ -50,7 +50,13 @@ public class Bow : MonoBehaviour
             arrowGameObject = Instantiate(fireballPrefab, shotPoint.position, shotPoint.rotation);
             arrowGameObject.transform.parent = shotPoint;
             arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            arrowGameObject.GetComponent<CircleCollider2D>().enabled = false;
+
+            CircleCollider2D[] circleCollider2D = arrowGameObject.GetComponents<CircleCollider2D>();
+            foreach(CircleCollider2D circleColliders in circleCollider2D)
+            {
+                circleColliders.enabled = false;
+            }
+            SoundManager.PlaySound(SoundManager.SoundType.FireballCharge);
             pointParentGameObject.SetActive(true);
         }
 
@@ -83,6 +89,7 @@ public class Bow : MonoBehaviour
             launchForce = 0;
             pointParentGameObject.SetActive(false);
             arrowGameObject = null;
+            SoundManager.PlaySound(SoundManager.SoundType.BowRelease, 0.85f);
             ConsumeHealth();
         }
     }

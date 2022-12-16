@@ -8,7 +8,8 @@ public static class SoundManager
     {
         PlayerFootsteps,
         JumpLanding,
-        Throw
+        BowRelease,
+        FireballCharge
     }
 
     private static Dictionary<SoundType, float> soundTimerDictionary;

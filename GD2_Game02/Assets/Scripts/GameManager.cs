@@ -32,4 +32,9 @@ public class GameManager : MonoBehaviour
     {
         gameClearScreen.SetActive(true);
     }
+
+    public bool isGameClear()
+    {
+        return gameClearScreen.gameObject.activeInHierarchy;
+    }
 }
