@@ -61,7 +61,9 @@ public class EnemyPatrol : MonoBehaviour
         {
             Health playerHealth = collision.GetComponent<Health>();
             playerHealth.TakeDamage(damageAmount);
-            Debug.Log("Damage");
+            Destroy(this.gameObject);
+            SoundManager.PlaySound(SoundManager.SoundType.TakeDamage,0.85f);
+            SoundManager.PlaySound(SoundManager.SoundType.EnemyDeath);
         }
     }
 }

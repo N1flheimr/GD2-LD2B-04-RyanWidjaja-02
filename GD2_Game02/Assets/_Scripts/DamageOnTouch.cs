@@ -10,6 +10,7 @@ public class DamageOnTouch : MonoBehaviour
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
             collision.GetComponent<Health>().TakeDamage(damage);
+            SoundManager.PlaySound(SoundManager.SoundType.TakeDamage, 0.85f);
         }
     }
 }

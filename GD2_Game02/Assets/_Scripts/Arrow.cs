@@ -62,6 +62,7 @@ public class Arrow : MonoBehaviour
         if (collision.CompareTag("Enemy") )
         {
             Destroy(collision.gameObject);
+            SoundManager.PlaySound(SoundManager.SoundType.EnemyDeath);
         }
     }
 }

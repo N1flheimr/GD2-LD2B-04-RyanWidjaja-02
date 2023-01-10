@@ -18,6 +18,7 @@ public class HealOnTouch : MonoBehaviour
                 return;
             }
             playerHealth.SetHealth(playerHealth.GetCurrentHealth() + amount);
+            SoundManager.PlaySound(SoundManager.SoundType.Heal);
             Destroy(this.gameObject);
         }
     }

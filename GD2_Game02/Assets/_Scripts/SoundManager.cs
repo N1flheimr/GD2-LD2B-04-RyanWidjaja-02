@@ -9,7 +9,11 @@ public static class SoundManager
         PlayerFootsteps,
         JumpLanding,
         BowRelease,
-        FireballCharge
+        FireballCharge,
+        Heal,
+        TakeDamage,
+        EnemyDeath,
+        GameClear
     }
 
     private static Dictionary<SoundType, float> soundTimerDictionary;
