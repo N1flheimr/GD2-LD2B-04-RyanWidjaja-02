@@ -10,7 +10,7 @@ public class HealOnTouch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.isTrigger)
+        if (collision.CompareTag("Player"))
         {
             Health playerHealth = collision.GetComponent<Health>();
             if (playerHealth.GetCurrentHealth() == playerHealth.GetCurrentMaxHealth())

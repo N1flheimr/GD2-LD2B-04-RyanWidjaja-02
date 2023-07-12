@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    //public event EventHandler
+
     [SerializeField] private float currentHealth;
 
     [SerializeField] private float maxHealth = 150f;

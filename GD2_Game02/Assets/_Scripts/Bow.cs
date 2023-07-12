@@ -52,7 +52,7 @@ public class Bow : MonoBehaviour
             arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = true;
 
             CircleCollider2D[] circleCollider2D = arrowGameObject.GetComponents<CircleCollider2D>();
-            foreach(CircleCollider2D circleColliders in circleCollider2D)
+            foreach (CircleCollider2D circleColliders in circleCollider2D)
             {
                 circleColliders.enabled = false;
             }
@@ -78,7 +78,11 @@ public class Bow : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            arrowGameObject.GetComponent<CircleCollider2D>().enabled = true;
+            CircleCollider2D[] circleCollider2D = arrowGameObject.GetComponents<CircleCollider2D>();
+            foreach (CircleCollider2D circleColliders in circleCollider2D)
+            {
+                circleColliders.enabled = true;
+            }
             arrowGameObject.transform.parent = null;
 
             if (arrowGameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))

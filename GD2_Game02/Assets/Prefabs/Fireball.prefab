@@ -154,12 +154,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6538400535152912735}
   - component: {fileID: 6538400535152912733}
-  - component: {fileID: 846117453474301487}
-  - component: {fileID: -1343155299757223708}
+  - component: {fileID: 3687937669621715526}
+  - component: {fileID: 731277721497078591}
   - component: {fileID: 4803775780826541012}
+  - component: {fileID: 7474489668172734935}
   m_Layer: 9
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +204,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &846117453474301487
+--- !u!58 &3687937669621715526
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,8 +219,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!58 &-1343155299757223708
+  m_Radius: 0.11
+--- !u!58 &731277721497078591
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,7 +235,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.23
 --- !u!114 &4803775780826541012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +252,20 @@ MonoBehaviour:
   outerLight: {fileID: 1115288397}
   innerLightFadeSpeed: 0.0625
   outerLightFadeSpeed: 0.07
+  healAmount: 15
+--- !u!114 &7474489668172734935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538400535152912704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e7603b4035b4949897fa515f089613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 15
 --- !u!1 &6538400535802684284
 GameObject:
   m_ObjectHideFlags: 0

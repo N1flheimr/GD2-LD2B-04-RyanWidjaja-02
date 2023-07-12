@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203190986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203190985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0.308, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 337088415}
   - component: {fileID: 337088416}
   - component: {fileID: 81121490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337088414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.398, z: 0}
   m_LocalScale: {x: 1.475, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -82,9 +82,9 @@ MonoBehaviour:
   launchForce: 0
   chargeSpeed: 65
   maxLaunchForce: 28
+  consumeHealthAmount: 15
   shotPoint: {fileID: 203190986}
   pointParentGameObject: {fileID: 0}
-  direction: {x: 0, y: 0}
 --- !u!114 &81121490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895013741}
   - component: {fileID: 1895013740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CameraController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895013739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136101049}
   - component: {fileID: 2136101050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ Transform:
   m_GameObject: {fileID: 2136101048}
   m_LocalRotation: {x: -0, y: -0, z: 0.25881857, w: 0.965926}
   m_LocalPosition: {x: 0.15, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.28787, y: 0.28787, z: 0.57574}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 337088415}
@@ -217,10 +217,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -269240513
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.6118021, g: 0.6226415, b: 0.20793873, a: 1}
+  m_Color: {r: 0.6597191, g: 0.6792453, b: 0.2652901, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7807192083987336237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackWallCheck
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7807192084304347598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7807192084625906689}
   - component: {fileID: 7807192084625906694}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PointLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,13 +341,13 @@ MonoBehaviour:
   m_BlendStyleIndex: 2
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.8
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000c79ac8aad14bc0e287b9e336c5a0240ff92fe2e1dd86f4b83fb7f3ef89821966
+  m_ApplyToSortingLayers: 00000000c79ac8aad14bc0e287b9e336c5a0240ff92fe2e1dd86f4b83fb7f3ef89821966bf46ff02
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 1
+  m_LightOrder: 25
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 1
   m_NormalMapDistance: 3
@@ -440,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7807192084885481410}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7807192084982164828}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FrontWallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -503,7 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7807192085502373149}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7807192085502373148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.066, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -538,7 +538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7807192085673263487}
   - component: {fileID: 7807192085673263484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,8 +553,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7807192085673263486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0, y: 0.64, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7807192085502373149}
@@ -599,10 +599,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 254058693
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 10
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.6509434, g: 0.2709607, b: 0.16826269, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 58e2cda1fd37dab4eb48339fd275cbcd, type: 3}
+  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 7807192085707293136}
   - component: {fileID: 7807192085707293140}
   - component: {fileID: 1328094300}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -663,10 +663,10 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.65}
+  m_Offset: {x: 0, y: 0.59}
   m_Size: {x: 0.55, y: 1.2}
   m_Direction: 0
 --- !u!61 &7807192085707293141
@@ -679,7 +679,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.65}
@@ -693,8 +693,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24, y: 0.89}
-  m_EdgeRadius: 0.2
+  m_Size: {x: 0.38, y: 1}
+  m_EdgeRadius: 0.13
 --- !u!50 &7807192085707293136
 Rigidbody2D:
   serializedVersion: 4
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotatingObject: {fileID: 7807192085502373148}
   groundCheckPoint_: {fileID: 7807192084304347598}
-  groundCheckSize_: {x: 0.05, y: 0.15}
+  groundCheckSize_: {x: 0.1, y: 0.15}
   frontWallCheckPoint_: {fileID: 7807192084982164828}
   backWallCheckPoint_: {fileID: 7807192083987336237}
   wallCheckSize_: {x: 0.1, y: 0.05}
@@ -739,16 +739,16 @@ MonoBehaviour:
     m_Bits: 64
   moveSpeed_: 3.55
   velPower_: 1
-  acceleration_: 3
-  deccelaration_: 2
-  fallClamp_: -14
+  acceleration_: 4
+  deccelaration_: 3.5
+  fallClamp_: -13
   jumpCutMult: 0.5
   coyoteTime: 0.135
   jumpBufferTime: 0.13
   fallGravityMult: 1.95
   gravityScale: 1.05
   frictionAmount: 0.0275
-  jumpForce_: 11.5
+  jumpForce_: 11.3
 --- !u!114 &1328094300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,4 +762,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 100
+  maxHealth: 125

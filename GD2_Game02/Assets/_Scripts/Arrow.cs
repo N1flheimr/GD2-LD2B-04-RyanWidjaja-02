@@ -7,17 +7,17 @@ public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool hasHit;
-    private CircleCollider2D circleCollider2D;
     [SerializeField] private Light2D innerLight;
     [SerializeField] private Light2D outerLight;
     [SerializeField] private float innerLightFadeSpeed;
     [SerializeField] private float outerLightFadeSpeed;
 
+    [SerializeField] private float healAmount;
+
     private void Start()
     {
         hasHit = false;
         rb = GetComponent<Rigidbody2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
     private void Update()
@@ -50,7 +50,6 @@ public class Arrow : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             hasHit = true;
-            circleCollider2D.enabled = false;
             rb.velocity = Vector3.zero;
             rb.isKinematic = true;
         }
@@ -59,7 +58,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") )
+        if (collision.CompareTag("Enemy") && !hasHit)
         {
             Destroy(collision.gameObject);
             SoundManager.PlaySound(SoundManager.SoundType.EnemyDeath);
