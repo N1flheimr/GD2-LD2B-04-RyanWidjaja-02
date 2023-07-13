@@ -7,7 +7,6 @@ public class HealOnTouch : MonoBehaviour
 {
     [SerializeField] private float amount;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
