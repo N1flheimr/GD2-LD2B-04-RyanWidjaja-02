@@ -9,7 +9,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (!GameManager.instance.isGameClear())
+            if (!GameManager.instance.IsGameClear())
             {
                 SoundManager.PlaySound(SoundManager.SoundType.GameClear);
             }

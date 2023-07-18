@@ -251,7 +251,7 @@ MonoBehaviour:
   outerLight: {fileID: 1115288397}
   innerLightFadeSpeed: 0.065
   outerLightFadeSpeed: 0.09
-  healAmount: 20
+  healAmount: 15
   healDecreaseTime: 2.2
 --- !u!1 &6538400535802684284
 GameObject:

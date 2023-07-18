@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [SerializeField] private float damageAmount;
 
     [SerializeField] private float movementSpeed = 1f;
 
@@ -53,17 +52,5 @@ public class EnemyPatrol : MonoBehaviour
         }
         movementSpeed *= -1;
         isFacingRight = !isFacingRight;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && collision.isTrigger)
-        {
-            Health playerHealth = collision.GetComponent<Health>();
-            playerHealth.TakeDamage(damageAmount);
-            Destroy(this.gameObject);
-            SoundManager.PlaySound(SoundManager.SoundType.TakeDamage,0.85f);
-            SoundManager.PlaySound(SoundManager.SoundType.EnemyDeath);
-        }
     }
 }

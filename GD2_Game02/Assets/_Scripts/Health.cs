@@ -49,7 +49,7 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
-        if (!GameManager.instance.isGameClear())
+        if (!GameManager.instance.IsGameClear())
         {
             gameObject.SetActive(false);
             GameManager.instance.GameOver();

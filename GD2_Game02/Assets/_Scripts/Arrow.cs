@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 
 public class Arrow : MonoBehaviour
 {
+
     private Rigidbody2D rb;
     private bool hasHit;
 
@@ -63,8 +66,10 @@ public class Arrow : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && !hasHit)
         {
-            Destroy(collision.gameObject);
-            SoundManager.PlaySound(SoundManager.SoundType.EnemyDeath);
+            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                enemy.Death();
+            }
         }
 
         if (collision.CompareTag("Player") && hasHit)

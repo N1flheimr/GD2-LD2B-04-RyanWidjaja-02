@@ -663,6 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88905147}
   - component: {fileID: 88905148}
+  - component: {fileID: 88905149}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -712,6 +713,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &88905149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88905146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0236eed8c903249963b8b2faec83d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &124490599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52687,11 +52700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8379167838223117825, guid: 24130b6f93313d541b76749c018a0e31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.25
+      value: -30.75
       objectReference: {fileID: 0}
     - target: {fileID: 8379167838223117825, guid: 24130b6f93313d541b76749c018a0e31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.2128
+      value: -16.4628
       objectReference: {fileID: 0}
     - target: {fileID: 8379167838223117825, guid: 24130b6f93313d541b76749c018a0e31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -124462,6 +124475,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1401424854}
   gameClearScreen: {fileID: 1749064048}
   treasureTransform: {fileID: 1426858102}
+  coinCount: 0
 --- !u!4 &1310905917
 Transform:
   m_ObjectHideFlags: 0
@@ -129053,6 +129067,22 @@ PrefabInstance:
     - target: {fileID: 7807192085707293139, guid: dee2b4b974980be4a9620934d048362f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807192085707293140, guid: dee2b4b974980be4a9620934d048362f, type: 3}
+      propertyPath: jumpForce_
+      value: 11.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807192085707293140, guid: dee2b4b974980be4a9620934d048362f, type: 3}
+      propertyPath: moveSpeed_
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807192085707293140, guid: dee2b4b974980be4a9620934d048362f, type: 3}
+      propertyPath: deccelaration_
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807192085707293140, guid: dee2b4b974980be4a9620934d048362f, type: 3}
+      propertyPath: fallGravityMult
+      value: 1.925
       objectReference: {fileID: 0}
     - target: {fileID: 7807192085707293143, guid: dee2b4b974980be4a9620934d048362f, type: 3}
       propertyPath: m_RootOrder
