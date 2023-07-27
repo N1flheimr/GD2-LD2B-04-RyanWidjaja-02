@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
 
     [System.NonSerialized] public bool top_;
     [System.NonSerialized] public bool isFacingRight;
+
+    [SerializeField] private RawImage buttonRawImage;
 
     private void Awake()
     {
@@ -375,6 +378,11 @@ public class PlayerController : MonoBehaviour
         RotatingObject.transform.localScale = scale;
 
         isFacingRight = !isFacingRight;
+    }
+
+    public RawImage GetButtonRawImage()
+    {
+        return buttonRawImage;
     }
 
     #region CHECK METHODS

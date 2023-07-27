@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
@@ -54,11 +52,14 @@ public class Arrow : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if (rb != null)
         {
-            hasHit = true;
-            rb.velocity = Vector3.zero;
-            rb.isKinematic = true;
+            if (collision.collider.CompareTag("Ground"))
+            {
+                hasHit = true;
+                rb.velocity = Vector3.zero;
+                rb.isKinematic = true;
+            }
         }
     }
 
@@ -86,10 +87,11 @@ public class Arrow : MonoBehaviour
     }
     public IEnumerator HealAmountDecrease()
     {
-        while (healAmount > 0)
+        while (healAmount > 5)
         {
             yield return new WaitForSeconds(healDecreaseTime);
             healAmount--;
         }
+        StopCoroutine(HealAmountDecrease());
     }
 }

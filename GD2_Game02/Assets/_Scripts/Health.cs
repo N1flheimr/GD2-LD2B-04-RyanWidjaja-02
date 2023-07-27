@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.Collections;
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
-    //public event EventHandler
+    public event EventHandler OnHealthChanged;
+    public event EventHandler OnMaxHealthChanged;
 
     [SerializeField] private float currentHealth;
 
@@ -26,6 +28,7 @@ public class Health : MonoBehaviour
             currentHealth = 0f;
             Death();
         }
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void SetHealth(float newHealth)
@@ -35,6 +38,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public float GetCurrentHealth()
@@ -54,5 +58,12 @@ public class Health : MonoBehaviour
             gameObject.SetActive(false);
             GameManager.instance.GameOver();
         }
+    }
+
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
+        OnMaxHealthChanged?.Invoke(this, EventArgs.Empty);
     }
 }

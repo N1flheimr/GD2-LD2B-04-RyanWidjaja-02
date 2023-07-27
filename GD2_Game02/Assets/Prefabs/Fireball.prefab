@@ -252,7 +252,7 @@ MonoBehaviour:
   innerLightFadeSpeed: 0.065
   outerLightFadeSpeed: 0.09
   healAmount: 15
-  healDecreaseTime: 2.2
+  healDecreaseTime: 2.5
 --- !u!1 &6538400535802684284
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,8 +434,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -269240513
-  m_SortingLayer: 9
+  m_SortingLayerID: -1191934243
+  m_SortingLayer: 8
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.735849, g: 0.33924797, b: 0.093022406, a: 1}

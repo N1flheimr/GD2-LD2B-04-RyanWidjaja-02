@@ -54,4 +54,9 @@ public class GameManager : MonoBehaviour
     {
         coinCount -= amount;
     }
+
+    public Transform GetPlayerTransform()
+    {
+        return playerTransform;
+    }
 }
