@@ -6,12 +6,15 @@ using UnityEngine;
 public class PlayerHealthUpgrade : BasePlayerUpgradeSO
 {
     public float Amount;
+    public int price;
 
-    public override void Apply()
-    {
+    public override void Apply() {
+        if (!CoinManager.Instance.CanSpendCoin(price)) {
+            return;
+        }
         Transform playerTransform = GameManager.instance.GetPlayerTransform();
-        if(playerTransform.TryGetComponent<Health>(out var playerHealth))
-        {
+        if (playerTransform.TryGetComponent<Health>(out var playerHealth)) {
+            CoinManager.Instance.ConsumeCoin(price);
             playerHealth.IncreaseMaxHealth(Amount);
             Debug.Log("Max Health Increased" + playerHealth.GetCurrentMaxHealth());
         }

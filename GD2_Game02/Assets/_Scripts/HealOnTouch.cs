@@ -6,18 +6,17 @@ using UnityEngine.Tilemaps;
 public class HealOnTouch : MonoBehaviour
 {
     [SerializeField] private float amount;
+    private bool hasTriggerEntered = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player") && !hasTriggerEntered) {
             Health playerHealth = collision.GetComponent<Health>();
-            if (playerHealth.GetCurrentHealth() == playerHealth.GetCurrentMaxHealth())
-            {
+            if (playerHealth.GetCurrentHealth() == playerHealth.GetCurrentMaxHealth()) {
                 return;
             }
             playerHealth.SetHealth(playerHealth.GetCurrentHealth() + amount);
             SoundManager.PlaySound(SoundManager.SoundType.Heal);
+            hasTriggerEntered = true;
             Destroy(this.gameObject);
         }
     }

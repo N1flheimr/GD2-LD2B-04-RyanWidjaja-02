@@ -7,17 +7,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageAmount;
     [SerializeField] private GameObject coinPrefab;
 
-    public void Death()
-    {
-        Destroy(this.gameObject);
+    public void Death() {
         SoundManager.PlaySound(SoundManager.SoundType.EnemyDeath);
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        Debug.Log("Coin Drop");
+        Destroy(this.gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && collision.isTrigger)
-        {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player") && collision.isTrigger) {
             Health playerHealth = collision.GetComponent<Health>();
             playerHealth.TakeDamage(damageAmount);
             Destroy(this.gameObject);

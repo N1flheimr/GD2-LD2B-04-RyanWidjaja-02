@@ -5,27 +5,65 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private RawImage buttonUI;
+    [SerializeField] private GameObject buttonGameObject;
+    [SerializeField] private GameObject shopWindowGameObject;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            if (collision.TryGetComponent<PlayerController>(out PlayerController playerController))
-            {
-                playerController.GetButtonRawImage().enabled = true;
+    private bool canOpenShop;
+    private bool isOpen;
+
+    private void Start() {
+        buttonGameObject.SetActive(false);
+        shopWindowGameObject.SetActive(false);
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if (canOpenShop && !isOpen) {
+                OpenShopWindow();
+            }
+            else if (isOpen) {
+                CloseShopWindow();
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            if (collision.TryGetComponent<PlayerController>(out PlayerController playerController))
-            {
-                playerController.GetButtonRawImage().enabled = false;
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            if (collision.TryGetComponent<PlayerController>(out PlayerController playerController)) {
+                ActiveButton();
+                canOpenShop = true;
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            if (collision.TryGetComponent<PlayerController>(out PlayerController playerController)) {
+                DeactiveButton();
+                canOpenShop = false;
+                CloseShopWindow();
+            }
+        }
+    }
+    private void ActiveButton() {
+        buttonGameObject.SetActive(true);
+    }
+
+    private void DeactiveButton() {
+        buttonGameObject.SetActive(false);
+    }
+
+    private void OpenShopWindow() {
+        shopWindowGameObject?.SetActive(true);
+        isOpen = true;
+    }
+
+    private void CloseShopWindow() {
+        shopWindowGameObject?.SetActive(false);
+        isOpen = false;
+    }
+
+    public bool GetIsOpen() {
+        return isOpen;
     }
 }

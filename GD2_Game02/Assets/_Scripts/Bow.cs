@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Bow : MonoBehaviour
 {
@@ -25,14 +26,12 @@ public class Bow : MonoBehaviour
 
     [System.NonSerialized] public Vector2 direction;
 
-    private void Awake()
-    {
+    private void Awake() {
         playerHealth = GetComponentInParent<Health>();
         isCharging = false;
     }
 
-    private void Update()
-    {
+    private void Update() {
         Vector2 position = transform.position;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -42,18 +41,15 @@ public class Bow : MonoBehaviour
         Shoot();
     }
 
-    private void Charge()
-    {
-        if (!isCharging)
-        {
+    private void Charge() {
+        if (!isCharging) {
             isCharging = true;
             arrowGameObject = Instantiate(fireballPrefab, shotPoint.position, shotPoint.rotation);
             arrowGameObject.transform.parent = shotPoint;
             arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = true;
 
             CircleCollider2D[] circleCollider2D = arrowGameObject.GetComponents<CircleCollider2D>();
-            foreach (CircleCollider2D circleColliders in circleCollider2D)
-            {
+            foreach (CircleCollider2D circleColliders in circleCollider2D) {
                 circleColliders.enabled = false;
             }
             SoundManager.PlaySound(SoundManager.SoundType.FireballCharge);
@@ -62,31 +58,25 @@ public class Bow : MonoBehaviour
 
         launchForce += chargeSpeed * Time.deltaTime;
 
-        if (launchForce > maxLaunchForce)
-        {
+        if (launchForce > maxLaunchForce) {
             launchForce = maxLaunchForce;
         }
     }
 
-    private void Shoot()
-    {
-        if (Input.GetMouseButton(0))
-        {
+    private void Shoot() {
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject()) {
             Charge();
         }
 
-        if (Input.GetMouseButtonUp(0))
-        {
+        if (Input.GetMouseButtonUp(0) && isCharging) {
             arrowGameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             CircleCollider2D[] circleCollider2D = arrowGameObject.GetComponents<CircleCollider2D>();
-            foreach (CircleCollider2D circleColliders in circleCollider2D)
-            {
+            foreach (CircleCollider2D circleColliders in circleCollider2D) {
                 circleColliders.enabled = true;
             }
             arrowGameObject.transform.parent = null;
 
-            if (arrowGameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
-            {
+            if (arrowGameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb)) {
                 rb.velocity = transform.right * launchForce;
             }
             isCharging = false;
@@ -98,23 +88,27 @@ public class Bow : MonoBehaviour
         }
     }
 
-    private void ConsumeHealth()
-    {
+    private void ConsumeHealth() {
         playerHealth.TakeDamage(consumeHealthAmount);
     }
 
-    public float GetLaunchForce()
-    {
+    public float GetLaunchForce() {
         return launchForce;
     }
 
-    public Transform GetShotPoint()
-    {
+    public Transform GetShotPoint() {
         return shotPoint;
     }
 
-    public GameObject GetPointParentGameObject()
-    {
+    public GameObject GetPointParentGameObject() {
         return pointParentGameObject;
+    }
+
+    public void SetConsumeHealthAmount(float newConsumeHealthAmount) {
+        consumeHealthAmount = newConsumeHealthAmount;
+    }
+
+    public float GetConsumeHealthAmount() {
+        return consumeHealthAmount;
     }
 }

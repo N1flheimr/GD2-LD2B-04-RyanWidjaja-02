@@ -6,7 +6,6 @@ using UnityEngine.Device;
 
 public class GameManager : MonoBehaviour
 {
-    public event EventHandler OnCoinIncease;
 
     public static GameManager instance;
 
@@ -15,8 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject gameClearScreen;
     [SerializeField] private Transform treasureTransform;
-
-    [SerializeField] private int coinCount;
 
     private void Awake()
     {
@@ -44,16 +41,6 @@ public class GameManager : MonoBehaviour
         return gameClearScreen.gameObject.activeInHierarchy;
     }
 
-    public void AddCoinCount(int amount)
-    {
-        coinCount += amount;
-        OnCoinIncease?.Invoke(this, EventArgs.Empty);
-    }
-
-    public void ConsumeCoin(int amount)
-    {
-        coinCount -= amount;
-    }
 
     public Transform GetPlayerTransform()
     {

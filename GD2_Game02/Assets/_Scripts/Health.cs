@@ -63,6 +63,7 @@ public class Health : MonoBehaviour
     public void IncreaseMaxHealth(float amount)
     {
         maxHealth += amount;
+        currentHealth = maxHealth;
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
         OnMaxHealthChanged?.Invoke(this, EventArgs.Empty);
     }

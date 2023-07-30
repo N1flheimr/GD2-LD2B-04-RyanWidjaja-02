@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77ad7370eb50fa144b29c27d5e644df6, type: 3}
-  m_Name: HealthUpgrade
+  m_Name: HealthUpgrade+20
   m_EditorClassIdentifier: 
   UpgradeIcon: {fileID: 0}
-  UpgradeName: 
+  UpgradeName: +20 Health
   Description: 
-  Amount: 40
+  Amount: 20
+  price: 4

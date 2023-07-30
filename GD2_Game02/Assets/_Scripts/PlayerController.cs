@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     [System.NonSerialized] public bool top_;
     [System.NonSerialized] public bool isFacingRight;
 
-    [SerializeField] private RawImage buttonRawImage;
+    [SerializeField] private GameObject buttonImageGameObject;
 
     private void Awake()
     {
@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
+
+        buttonImageGameObject.SetActive(false);
     }
 
     private void Start()
@@ -380,9 +382,9 @@ public class PlayerController : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    public RawImage GetButtonRawImage()
+    public GameObject GetButtonGameObject()
     {
-        return buttonRawImage;
+        return buttonImageGameObject;
     }
 
     #region CHECK METHODS

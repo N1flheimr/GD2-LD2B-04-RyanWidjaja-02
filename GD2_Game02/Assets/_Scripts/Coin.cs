@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    private bool hasTriggerEntered;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !hasTriggerEntered)
         {
-            GameManager.instance.AddCoinCount(1);
+            CoinManager.Instance.AddCoinCount(1);
+            hasTriggerEntered = true;
             Destroy(gameObject);
         }
     }
